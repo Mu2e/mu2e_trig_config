@@ -16,24 +16,24 @@ def generateLogger(evtMode, outdir, dictLog, logName, dictStreams, isOfflineBuil
     name_app = '.fcl'
     if evtMode != 'all':
         name_app = '_'+evtMode+'.fcl'
-    
+
     loggerFileName       = outdir+"/"+logName+name_app
     loggerConfigFileName = outdir+"/"+logName+'Config'+name_app
-   
+
     # if isOfflineBuild == False:
     #     os.system("chmod 755 {}".format(loggerConfigFileName))
     #     os.system("chmod 755 {}".format(loggerFileName))
     if doIt == True:
-        loggerMenu   = open(loggerFileName, 'w') 
-        loggerConfig = open(loggerConfigFileName, 'w') 
-    
+        loggerMenu   = open(loggerFileName, 'w')
+        loggerConfig = open(loggerConfigFileName, 'w')
+
     tagName = capitalize(logName)
-    
+
     if doIt == True:
-        loggerConfig.write("BEGIN_PROLOG\n")        
+        loggerConfig.write("BEGIN_PROLOG\n")
         loggerConfig.write(tagName+"Config: {\n")
- 
-    
+
+
     list_of_logger_streams = []
     for k in dictLog:
         if dictLog[k]['enabled'] == 0: continue
@@ -54,14 +54,14 @@ def generateLogger(evtMode, outdir, dictLog, logName, dictStreams, isOfflineBuil
         loggerConfig.write("}\n")
         loggerConfig.write("END_PROLOG\n")
         loggerConfig.close()
-     
+
     if doIt == True:
         loggerMenu.write("BEGIN_PROLOG\n")
         loggerMenu.write(tagName+"Outputs: {\n")
         loggerMenu.write("  outputs: [")
     for i in range(len(list_of_logger_streams)):
         k = list_of_logger_streams[i]
-        if i!= len(list_of_logger_streams)-1: 
+        if i!= len(list_of_logger_streams)-1:
             if doIt == True:
                 loggerMenu.write("{},".format(k))
         else:
@@ -72,7 +72,7 @@ def generateLogger(evtMode, outdir, dictLog, logName, dictStreams, isOfflineBuil
     if doIt == True:
         loggerMenu.write("]\n")
         loggerMenu.write("}\n")
-    
+
         loggerMenu.write(tagName+"Menu: {\n")
         loggerMenu.write("  end_paths: [ outputs ] \n")
         loggerMenu.write("}\n")
@@ -96,7 +96,7 @@ def generateMenu(evtMode, outdir,  dictMenu, menuName, dictStreams, proc_name, i
         name_app = '_'+evtMode+'.fcl'
     trigMenuFileName = outdir+"/"+menuName+name_app
     psConfigFileName = outdir+"/"+menuName+'PSConfig'+name_app
-    
+
     # if isOfflineBuild==False:
     #     os.system("chmod 755 {}".format(trigMenuFileName))
     #     os.system("chmod 755 {}".format(psConfigFileName))
@@ -105,25 +105,25 @@ def generateMenu(evtMode, outdir,  dictMenu, menuName, dictStreams, proc_name, i
     if doIt == True:
         trigMenu = open(trigMenuFileName, 'w')
         psConfig = open(psConfigFileName, 'w')
-    
+
     tag = capitalize(menuName)
     if doIt == True:
-        trigMenu.write("BRGIN_PROLOG\n")
+        trigMenu.write("BEGIN_PROLOG\n")
         trigMenu.write(tag+": {\n")
         trigMenu.write("  trigger_paths: [\n")
-        psConfig.write("BRGIN_PROLOG\n")
+        psConfig.write("BEGIN_PROLOG\n")
         psConfig.write(tag+"PSConfig: {\n")
-  
+
     list_of_calo_trk_paths = []
     for k in dictMenu:
         if dictMenu[k]['enabled'] == 0: continue
         evtModes = dictMenu[k]['eventModeConfig']
         evtModeCheck= evtMode == "all"
         for ll in range(len(evtModes)):
-            if evtMode != "all" and evtMode == evtModes[ll]["eventMode"]: 
+            if evtMode != "all" and evtMode == evtModes[ll]["eventMode"]:
                 evtModeCheck = True
                 break
-        if evtModeCheck: 
+        if evtModeCheck:
             list_of_calo_trk_paths.append(k)
 
     for i in range(len(list_of_calo_trk_paths)):
@@ -150,30 +150,30 @@ def generateMenu(evtMode, outdir,  dictMenu, menuName, dictStreams, proc_name, i
             psInput += " { eventMode: "+"{}".format(evtModes[ll]["eventMode"])+" prescale:{}".format(evtModes[ll]["prescale"])+"}"
             notFirst = True
         psInput += " ]"
-        
+
         if doIt == True:
             psConfig.write("      eventModeConfig : {}\n".format(psInput))
             psConfig.write("}\n\n")
-        
+
         vv=dictMenu[path]['eventModeConfig']
         for dd in vv:
             for s in dd['streams']:
                 if path not in dictStreams[s]:
                     trg_path = proc_name+":"+path
                     dictStreams[s].append(trg_path)
-        
+
     #
-    if verbose==True: print("[generateMenu] {} TRIGGER PATHS FOUND (): {}".format(menuName, len(list_of_calo_trk_paths), list_of_calo_trk_paths)) 
+    if verbose==True: print("[generateMenu] {} TRIGGER PATHS FOUND (): {}".format(menuName, len(list_of_calo_trk_paths), list_of_calo_trk_paths))
     #
     if doIt == True:
         psConfig.write("}\n")
-        psConfig.write("END_PROLOG\n")        
+        psConfig.write("END_PROLOG\n")
         psConfig.close()
         trigMenu.write("  ]\n")
         trigMenu.write("}\n")
-        trigMenu.write("END_PROLOG\n")        
+        trigMenu.write("END_PROLOG\n")
         trigMenu.close()
-    
+
     # if isOfflineBuild==False:
     #     os.system("chmod 444 {}".format(trigMenuFileName))
     #     os.system("chmod 444 {}".format(psConfigFileName))
@@ -182,7 +182,7 @@ def generateMenu(evtMode, outdir,  dictMenu, menuName, dictStreams, proc_name, i
 
 #--------------------------------------------------------------------------------
 #    Function used to generate the Menu file in the Offline environemnt
-# 
+#
 #
 #--------------------------------------------------------------------------------
 def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
@@ -234,7 +234,7 @@ def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
     targetFiles = []
 
     sourceFiles.append(configFileName)
-    
+
     data_files = [
         srcDir+'data/physMenu.json',
         srcDir+'data/extrPosMenu.json'
@@ -251,7 +251,7 @@ def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
     ]
     for fn in trig_prolog_files:
         sourceFiles.append(fn)
-        
+
     relProjectDir = "gen"
     projectDir    = outDir+relProjectDir
     os.system("mkdir -p {}".format(projectDir))
@@ -267,7 +267,7 @@ def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
         dict_trkcal_triggers = conf['trigger_paths']
         trkcal_proc_name     = conf['trkcal_filter_process_name']
         targetFiles += generateMenu(evtMode, projectDir, dict_trkcal_triggers, 'trig_'+tag, data_streams, trkcal_proc_name, True, doIt, verbose)
-        if verbose==True: print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))        
+        if verbose==True: print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))
 
         dict_agg_triggers = conf['agg_trigger_paths']
         add_proc_name     = conf['crv_agg_process_name']
@@ -275,13 +275,13 @@ def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
 
         #now produce the logger menus
         dict_logger = conf['dataLogger_streams']
-        targetFiles += generateLogger(evtMode, projectDir, dict_logger, 'trigLogger_'+tag, data_streams, True, doIt, verbose)        
+        targetFiles += generateLogger(evtMode, projectDir, dict_logger, 'trigLogger_'+tag, data_streams, True, doIt, verbose)
         #
         dict_logger = conf['lumiLogger_streams']
         lumi_streams =  {}
         lumi_streams['lumi'] = []
         targetFiles += generateLogger(evtMode, projectDir, dict_logger, 'trigLumiLogger_'+tag, lumi_streams, True, doIt, verbose)
-        
+
     return sourceFiles, targetFiles, "python "+srcDir+"python/generateMenuFromJSON.py"
 
     # psConfig.write("}\n")
@@ -289,11 +289,11 @@ def generateOffline(menuFile, evtMode, outdir, doIt=False, verbose=False):
     # trigMenu.write("  ]\n")
     # trigMenu.write("}\n")
     # trigMenu.close()
-    
+
     # os.system("chmod 444 {}".format(trigMenuFileName))
     # os.system("chmod 444 {}".format(psConfigFileName))
 
-    
+
 
 
 #--------------------------------------------------------------------------------
@@ -315,7 +315,7 @@ def generate(args):
         dict_trkcal_triggers = conf['trigger_paths']
         trkcal_proc_name     = conf['trkcal_filter_process_name']
         generateMenu(args.evtMode, args.outdir, dict_trkcal_triggers, 'trig_'+tag, data_streams, trkcal_proc_name, False, True, args.verbose)
-        if args.verbose==True: print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))        
+        if args.verbose==True: print("[generateMenuJSON] DATA STREAMS FOUND: {}".format(data_streams))
 
         dict_agg_triggers = conf['agg_trigger_paths']
         add_proc_name     = conf['crv_agg_process_name']
@@ -329,13 +329,13 @@ def generate(args):
         lumi_streams =  {}
         lumi_streams['lumi'] = []
         generateLogger(args.evtMode, args.outdir, dict_logger, 'trigLumiLogger_'+tag, lumi_streams, False, True, args.verbose)
-   
+
     # psConfig.write("}\n")
     # psConfig.close()
     # trigMenu.write("  ]\n")
     # trigMenu.write("}\n")
     # trigMenu.close()
-    
+
     # os.system("chmod 444 {}".format(trigMenuFileName))
     # os.system("chmod 444 {}".format(psConfigFileName))
 
@@ -356,13 +356,13 @@ if __name__ == "__main__":
                         help="Specify a single event mode if you want a single-event-mode Menu: OnSpill, OffSpill. The default is 'all'")
 
     args = parser.parse_args()
-    
+
     os.system("mkdir -p {}".format(args.outdir))
-    
+
     #check the event mode
     allowed_evtModes = ['OnSpill', 'OffSpill', 'all']
     if args.evtMode not in allowed_evtModes:
         print("[generateMenuFromJSON] EVENT-MODE {} NOT ALLOWED! THE POSSIBLE OPTIONS ARE: {}".format(args.evtMode, allowed_evtModes))
         exit(1)
-        
+
     generate(args)
