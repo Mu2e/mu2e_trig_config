@@ -253,7 +253,7 @@ TrigCprFilters:{
    cprDeHighPStopTargKSFilter: {
       kalSeedCollection: "TTCalSeedFitDe"
       module_type: "KalSeedFilter"
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for downstreeam e-minus
             fitdirection: 0
             fitparticle: 11
@@ -343,7 +343,7 @@ TrigCprFilters:{
    cprDeLowPStopTargKSFilter: {
       kalSeedCollection: "TTCalSeedFitDe"
       module_type: "KalSeedFilter"
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for downstream e-minus
             fitdirection: 0
             fitparticle: 11
@@ -424,7 +424,7 @@ TrigCprFilters:{
          prescaleUsingD0Phi: false
          requireCaloCluster: false
       }
-      
+
    }
 
    cprHelixDeTCFilter: {
@@ -433,7 +433,7 @@ TrigCprFilters:{
       requireCaloCluster: false
       timeClusterCollection: "TTCalTimePeakFinder"
    }
-   
+
    cprHelixUeHSFilter: {
       module_type: "HelixFilter"
       helixSeedCollection: "TTCalHelixMergerUe"
@@ -533,18 +533,18 @@ TrigTprFilters:{
          requireCaloCluster: false
       }
    }
-   
+
    tprDeHighPStopTargTCFilter: {
       minNStrawHits: 15
       module_type: "TimeClusterFilter"
       requireCaloCluster: false
       timeClusterCollection: "TTtimeClusterFinder"
    }
-   
+
    tprDeHighPStopTargKSFilter: {
       module_type: "KalSeedFilter"
       kalSeedCollection: "TTKSFDe"
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for doesntream e-minus
             fitdirection: 0
             fitparticle: 11
@@ -583,7 +583,7 @@ TrigTprFilters:{
          }
       ]
    }
-   
+
    tprDeLowPStopTargHSFilter: {
       module_type: "HelixFilter"
       helixSeedCollection: "TTHelixMergerDe"
@@ -626,7 +626,7 @@ TrigTprFilters:{
          requireCaloCluster: false
       }
    }
-   
+
    tprDeLowPStopTargTCFilter: {
       minNStrawHits: 10
       module_type: "TimeClusterFilter"
@@ -718,7 +718,7 @@ TrigTprFilters:{
          requireCaloCluster: false
       }
    }
-   
+
    tprHelixDeIpaHSFilter: {
       helixSeedCollection: "TTHelixMergerDe"
       module_type: "HelixFilter"
@@ -844,6 +844,104 @@ TrigTprFilters:{
       module_type: "TimeClusterFilter"
       requireCaloCluster: false
       timeClusterCollection: "TTtimeClusterFinderUe"
+   }
+}################################################################################
+#
+#
+#
+################################################################################
+TrigMprFilters:{
+   mprDeHighPStopTargHSFilter: {
+      module_type: "HelixFilter"
+      helixSeedCollection: "TTMprHelixMergerDe"
+      posHelicitySelection : {
+         configured: true
+         doHelicityCheck: false
+         maxAbsLambda: 300
+         maxChi2PhiZ: 8
+         maxChi2XY: 8
+         maxD0: 300
+         maxMomentum: 500
+         maxNLoops: 30
+         minAbsLambda: 140
+         minD0: -150
+         minHitRatio: 4e-1
+         minMomentum: 70
+         minNLoops: 0
+         minNStrawHits: 15
+         minPt: 0
+         prescaleUsingD0Phi: false
+         requireCaloCluster: false
+      }
+      negHelicitySelection : {
+         configured: true
+         doHelicityCheck: false
+         maxAbsLambda: 330
+         maxChi2PhiZ: 8
+         maxChi2XY: 8
+         maxD0: 300
+         maxMomentum: 500
+         maxNLoops: 30
+         minAbsLambda: 100
+         minD0: -150
+         minHitRatio: 4e-1
+         minMomentum: 60
+         minNLoops: 0
+         minNStrawHits: 15
+         minPt: 0
+         prescaleUsingD0Phi: false
+         requireCaloCluster: false
+      }
+   }
+
+   mprDeHighPStopTargTCFilter: {
+     minNStrawHits: 15
+      module_type: "TimeClusterFilter"
+      requireCaloCluster: false
+      timeClusterCollection: "TTtimeClusterFinder"
+   }
+
+   mprDeHighPStopTargKSFilter: {
+      module_type: "KalSeedFilter"
+      kalSeedCollection: "TTMprKSFDe"
+      KalSeedCuts : [
+         { #cuts for doesntream e-minus
+            fitdirection: 0
+            fitparticle: 11
+            doParticleTypeCheck: true
+            doZPropDirCheck: true
+            maxChi2DOF: 20
+            maxD0: 200
+            maxMomErr: 10
+            maxMomentum: 500
+            maxTanDip: 100
+            minD0: -200
+            minFitCons: -1
+            minMomentum: 80
+            minNStrawHits: 15
+            minT0: 0
+            minTanDip: 0
+            requireCaloCluster: false
+         },
+         {
+            fitdirection: 0
+            fitparticle: -11
+            doParticleTypeCheck: true
+            doZPropDirCheck: true
+            maxChi2DOF: 20
+            maxD0: 200
+            maxMomErr: 10
+            maxMomentum: 500
+            maxTanDip: 100
+            minD0: -200
+            minFitCons: -1
+            minMomentum: 70
+            minNStrawHits: 15
+            minT0: 0
+            minTanDip: 0
+            requireCaloCluster: false
+         }
+      ]
    }
 }
 
@@ -994,7 +1092,7 @@ TrigAprFilters:{
    aprHighPStopTargKSFilter: {
       kalSeedCollection: "TTAprKSF"
       module_type: "KalSeedFilter"
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for downstreeam e-minus
             doParticleTypeCheck: false
             doZPropDirCheck: true
@@ -1086,7 +1184,7 @@ TrigAprFilters:{
    aprLowPStopTargKSFilter: {
       kalSeedCollection: "TTAprKSF"
       module_type: "KalSeedFilter"
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for downstreeam e-minus
             doParticleTypeCheck: false
             doZPropDirCheck: true
@@ -1179,7 +1277,7 @@ TrigAprFilters:{
       kalSeedCollection: "TTAprKSF"
       module_type: "KalSeedFilter"
       minNTrks: 2
-      KalSeedCuts : [ 
+      KalSeedCuts : [
          { #cuts for downstreeam e-minus
             doParticleTypeCheck: false
             doZPropDirCheck: true
@@ -1343,6 +1441,7 @@ TrigFilters : {
       @table::TrigCprFilters
       @table::TrigTprFilters
       @table::TrigAprFilters
+      @table::TrigMprFilters
       @table::TrigCstFilters
       @table::TrigSupFilters
       @table::TrigCalFilters

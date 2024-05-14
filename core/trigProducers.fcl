@@ -600,6 +600,65 @@ TrigTprProducers : {
    }
 }
 
+TrigMprProducers : {
+
+  TTRobustMultiHelixFinder : {
+    module_type   : RobustMultiHelixFinder
+    ComboHitCollection      : "TTflagBkgHits"
+    TimeClusterCollection   : "TTtimeClusterFinder"
+    Helicities              : [-1,1]
+    MinDRCircle             : 40
+    MinRadCircle            : 150
+    MaxRadCircle            : 350
+    MinDXY2Circle           : 1600
+    ClusteringPhiBin        : 0.1
+    ClusteringMinBin        : 30
+    TargetCon               : false
+    TargetRadius            : 150
+    MinDPDZSlope            : 150
+    MaxDPDZSlope            : 350
+    DPDZStep                : 25
+    MaxDPhiHelInit          : 1.0
+    MaxDPhiHelFit           : 0.7
+    MaxDTHelFit             : 25
+    CaloClusterMinE         : 30
+    CaloClusterWeight       : 5
+    MaxChi2Hit              : 50
+    MinDZTrk                : 1500
+    FitCircleStrategy       : "ChiSquared"  # this is just a guess FIXME
+    MinStrawHits            : 10
+    NMaxTrkIter             : 3
+    DiagLevel               : 0
+  }
+  TTMprHelixMergerDe: {
+    HelixFinders: [ "TTRobustMultiHelixFinder" ]
+    debugLevel: 0
+    deltanh: 5
+    module_type: "MergeHelices"
+    scaleXY: 1.1
+    scaleZPhi: 7.5e-1
+    MinHitOverlapFraction: 0.5
+    MinNHitOverlap: 10
+  }
+  TTMprKSFDe: {
+    module_type : LoopHelixFit
+    MaterialSettings : { @table::Mu2eKinKalTrigger.MAT     }
+    KKFitSettings    : { @table::Mu2eKinKalTrigger.KKFIT   }
+    FitSettings      : { @table::Mu2eKinKalTrigger.SEEDFIT }
+    ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
+    ModuleSettings   : {
+      @table::Mu2eKinKalTrigger.LOOPHELIX
+      FitParticle : 11
+      HelixSeedCollections   : [ "TTMprHelixMergerDe" ]
+    }
+    UsePDGCharge     : false
+    FitDirection     : 0
+  }
+
+  mprDeHighPStopTargTriggerInfoMerger: {
+    module_type: "MergeTriggerInfo"
+  }
+}
 ################################################################################
 #
 #
@@ -668,13 +727,13 @@ TrigAprProducers : {
       chCollLabel2               : "TTmakeSH"
       ccCollLabel                : "CaloClusterFast"
    }
-   
+
    TTAprHelixFinder: { @table::CalPatRec.producers.AgnosticHelixFinder
       chCollLabel             : "TTflagBkgHits"
       tcCollLabel             : "TTTZClusterFinder"
       ccCollLabel             : "CaloClusterFast"
    }
-   
+
    TTAprHelixMerger: {
       HelixFinders: [
          "TTAprHelixFinder"
@@ -791,6 +850,7 @@ TrigProducers : {
       @table::TrigTprProducers
       @table::TrigCprProducers
       @table::TrigAprProducers
+      @table::TrigMprProducers
       @table::TrigCstProducers
    }
 }
