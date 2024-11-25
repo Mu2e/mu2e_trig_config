@@ -9,7 +9,7 @@ TrigCalFilters:{
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
   caloFastRMCPS       : { module_type: PrescaleEvent
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
-  caloHitRecN0SourceFilter : { module_type: PrescaleEvent
+  caloHitRecN0SourcePS : { module_type: PrescaleEvent
       eventModeConfig : [  { eventMode: OnSpill prescale:-1}, { eventMode: OffSpill prescale:-1} ]}
       
   caloFastCosmicFilter: {

@@ -294,11 +294,11 @@ TrigAprFilters:{
       maxAbsLambda: 500
       maxChi2PhiZ: 8
       maxChi2XY: 8
-      maxD0: 150
+      maxD0: 600. 
       maxMomentum: 2000
       maxNLoops: 30
       minAbsLambda: 50
-      minD0: -150
+      minD0: -600. #-150
       minHitRatio: 4e-1
       minMomentum: 80
       minNLoops: 0
@@ -344,11 +344,11 @@ TrigAprFilters:{
         fitdirection: 0
         fitparticle: 11
         maxChi2DOF: 20
-        maxD0: 150
+        maxD0: 600.
         maxMomErr: 10
         maxMomentum: 2000
         maxTanDip: 100
-        minD0: -150
+        minD0: -600.   #-150
         minFitCons: -1
         minMomentum: 80
         minNStrawHits: 12
@@ -362,11 +362,11 @@ TrigAprFilters:{
         fitdirection: 0
         fitparticle: -11
         maxChi2DOF: 20
-        maxD0: 150
+        maxD0: 600 #150
         maxMomErr: 10
         maxMomentum:2000
         maxTanDip: 100
-        minD0: -150
+        minD0: -600. #-150
         minFitCons: -1
         minMomentum: 80
         minNStrawHits: 12

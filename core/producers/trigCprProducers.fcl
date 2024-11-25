@@ -151,54 +151,58 @@ TrigCprProducers : {
    }
 
    TTCalTimePeakFinder: {
+      HitSelBits: ["TimeSelection","EnergySelection"]
+      BkgSelBits: [
+         "Background",
+         "Noisy",
+         "Dead"
+      ]
       DtMax: 20
       DtMin: -20
       MinNHits: 10
       StrawHitCollectionLabel: "TTflagBkgHits"
-      StrawHitFlagCollectionLabel: "ShouldNotBeUsed"
-      beta: 1
-      caloClusterModuleLabel: "CaloClusterFast"
-      debugLevel: 0
-      diagLevel: 0
-      diagPlugin: {
+      Beta: 1
+      CaloClusterModuleLabel: "CaloClusterFast"
+      DebugLevel: 0
+      DiagLevel: 0
+      DiagPlugin: {
          mcTruth: 0
-         mcUtils: {
-            strawDigiMCCollTag: "compressDigiMCs"
-            tool_type: "TrkPatRecMcUtils"
-         }
+         diagLevel: 0
          tool_type: "CalTimePeakFinderDiag"
       }
-      dtOffset: 0
-      minClusterEnergy: 50
-      minClusterSize: 2
+      DtOffset: 0
+      MinClusterEnergy: 50
+      MinClusterSize: 2
       module_type: "CalTimePeakFinder"
-      pitchAngle: 6.7e-1
-      printFrequency: 100
+      PitchAngle: 6.7e-1
+      PrintFrequency: 100
    }
    TTCalTimePeakFinderUe: {
+      HitSelBits: ["TimeSelection","EnergySelection"]
+      BkgSelBits: [
+         "Background",
+         "Noisy",
+         "Dead"
+      ]
       DtMax: 20
       DtMin: -20
       MinNHits: 10
       StrawHitCollectionLabel: "TTflagBkgHits"
-      StrawHitFlagCollectionLabel: "ShouldNotBeUsed"
-      beta: 1
-      caloClusterModuleLabel: "CaloClusterFast"
-      debugLevel: 0
-      diagLevel: 0
-      diagPlugin: {
+      Beta: 1
+      CaloClusterModuleLabel: "CaloClusterFast"
+      DebugLevel: 0
+      DiagLevel: 0
+      DiagPlugin: {
+         diagLevel: 0
          mcTruth: 0
-         mcUtils: {
-            strawDigiMCCollTag: "compressDigiMCs"
-            tool_type: "TrkPatRecMcUtils"
-         }
          tool_type: "CalTimePeakFinderDiag"
       }
-      dtOffset: -3.1
-      minClusterEnergy: 50
-      minClusterSize: 2
+      DtOffset: -3.1
+      MinClusterEnergy: 50
+      MinClusterSize: 2
       module_type: "CalTimePeakFinder"
-      pitchAngle: -6.7e-1
-      printFrequency: 100
+      PitchAngle: -6.7e-1
+      PrintFrequency: 100
    }
 
    TTCalHelixMergerDe: {
