@@ -2,13 +2,13 @@ BEGIN_PROLOG
 
 TrigAprProducers : {
   TTTZClusterFinder : { @table::CalPatRec.producers.TZClusterFinder
-    chCollLabel                : "TTflagBkgHits"
+    chCollLabel                : "TTDeltaFinder"
     chCollLabel2               : "TTmakeSH"
     ccCollLabel                : "CaloClusterFast"
   }
 
   TTAprHelixFinder: { @table::CalPatRec.producers.AgnosticHelixFinder
-    chCollLabel             : "TTflagBkgHits"
+    chCollLabel             : "TTDeltaFinder"
     tcCollLabel             : "TTTZClusterFinder"
     ccCollLabel             : "CaloClusterFast"
     minNHelixComboHits      : 10

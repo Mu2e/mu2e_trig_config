@@ -3,7 +3,7 @@ BEGIN_PROLOG
 TrigMprProducers : {
   TTRobustMultiHelixFinder : {
     module_type   : RobustMultiHelixFinder
-    ComboHitCollection      : "TTflagBkgHits"
+    ComboHitCollection      : "TTDeltaFinder"
     TimeClusterCollection   : "TTtimeClusterFinder"
     Helicities              : [-1,1]
     MinDRCircle             : 40
