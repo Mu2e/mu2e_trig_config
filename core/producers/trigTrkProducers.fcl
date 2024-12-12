@@ -54,6 +54,33 @@ TrigTrkProducers : {
       WriteStrawHitCollection : false
       StrawDigiADCWaveformCollectionTag : "notUsed"
    }
+   TTOmakeSHFromDigi: {
+      @table::TrkHitReco.producers.makeSH
+      MinimumTime : 0
+      MaximumTime : 100000
+      MinimumRadius : 0
+      MaximumRadius : 800
+      MinimumEnergy : 0
+      MaximumEnergy : 1
+      FitType                 : 5
+      FilterHits              : true # do filter dead straws
+      WriteStrawHitCollection : false
+      StrawDigiADCWaveformCollectionTag : "notUsed"
+   }
+   TTOmakePH: {
+      @table::TrkHitReco.producers.makePH
+      TestFlag   : false # not needed, since TTmakeSH is filtering
+      FilterHits : false
+      MinimumTime : 0
+      MinimumTime : 100000
+      MinimumRadius : 0
+      MaximumRadius : 800
+      MinimumEnergy : 0
+      MaximumEnergy : 1
+      ComboHitCollection    : "TTOmakeSH"
+      StrawHitSelectionBits : []
+      StrawHitMask          : []
+   }
 
    TTflagBkgHits: {
       @table::TrkHitReco.producers.FlagBkgHits
