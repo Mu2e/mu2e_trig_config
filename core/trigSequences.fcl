@@ -257,32 +257,12 @@ TrigCaloPaths: {
 }
 
 TrigCstPaths: {
-   cst        : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstPS, @sequence::TrigRecoSequences.calReco,
-      @sequence::TrigRecoSequences.trkPrepareHitsFast,
-      cstSDCountFilter,
-      CstSimpleTimeCluster, cstTCFilter,
-      CstLineFinder,
-      CstCosmicTrackFinder,
-      cstTSFilter,
-      cstTriggerInfoMerger ]
-
-   cst_timing0 : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstPS, @sequence::TrigRecoSequences.calReco,
-      @sequence::TrigRecoSequences.trkPrepareHitsFast,
-      cstSDCountFilter,
-      CstSimpleTimeCluster, cstTCFilter,
-      CstCosmicTrackFinder ]
-
-   cst_timing1 : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstPS, @sequence::TrigRecoSequences.calReco,
-      @sequence::TrigRecoSequences.trkPrepareHitsFast,
-      cstSDCountFilter,
-      CstSimpleTimeCluster ]
-
    cstTimeCluster : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstTimeClusterPS,
-      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      @sequence::TrigRecoSequences.trkPrepareHitsOffSpill,
       cstTimeClusterSDCountFilter,
       CstSimpleTimeCluster, cstTimeClusterTCFilter, cstTimeClusterTriggerInfoMerger ]
    cstCosmicTrackSeed : [ @sequence::TrigRecoSequences.artFragmentsGen,  cstCosmicTrackSeedPS,
-      @sequence::TrigRecoSequences.trkPrepareHitsFast,
+      @sequence::TrigRecoSequences.trkPrepareHitsOffSpill,
       cstCosmicTrackSeedSDCountFilter,
       CstSimpleTimeCluster, cstCosmicTrackSeedTCFilter, CstLineFinder, cstCosmicTrackSeedCTSFilter,
       cstCosmicTrackSeedTriggerInfoMerger ]

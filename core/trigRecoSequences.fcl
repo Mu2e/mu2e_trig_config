@@ -5,7 +5,7 @@ TrigRecoSequences:{
    #tracker hit reco/flagging
    trkPrepareHits     : [ TTmakeSH, TTmakePH, TTmakeSTH, TTflagBkgHits ]
    ##   trkPrepareHitsUCC  : [ TTmakeSHUCC, TTmakePHUCC, TTflagBkgHitsUCC ]
-   trkPrepareHitsFast : [ TTmakeSH, TTmakePH ]
+   trkPrepareHitsOffSpill  : [ TTOmakeSH, TTOmakePH ]
    ##   trkSPrepareHits    : [ TTmakeSH, TTSmakePH, TTmakeSTH ,TTSflagBkgHits ]
    #calorimeter reco
    calPrepareHits     : [ CaloHitMakerFast ]
