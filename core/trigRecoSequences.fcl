@@ -3,7 +3,7 @@ BEGIN_PROLOG
 
 TrigRecoSequences:{
    #tracker hit reco/flagging
-   trkPrepareHits     : [ TTmakeSH, TTmakePH, TTmakeSTH, TTflagBkgHits ]
+   trkPrepareHits     : [ TTmakeSH, TTmakePH, TTDeltaFinder ]
    ##   trkPrepareHitsUCC  : [ TTmakeSHUCC, TTmakePHUCC, TTflagBkgHitsUCC ]
    trkPrepareHitsFast : [ TTmakeSH, TTmakePH ]
    ##   trkSPrepareHits    : [ TTmakeSH, TTSmakePH, TTmakeSTH ,TTSflagBkgHits ]
