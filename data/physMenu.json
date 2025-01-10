@@ -175,7 +175,7 @@
             "bit" : 310 ,
             "enabled": 1,
             "eventModeConfig" : [{"eventMode":"OnSpill", "prescale":-1, "streams": [ "physics_trk_calib" ]},
-                                 {"eventMode":"OffSpill", "prescale":100, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
+                                 {"eventMode":"OffSpill", "prescale":1, "streams": [ "cosmics_main", "physics_trk_calib" ]}]
         },
         
         "cstCosmicTrackSeed":{
