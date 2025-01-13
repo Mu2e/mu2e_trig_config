@@ -75,6 +75,15 @@ TrigTrkProducers : {
 
 TrigTrkProducers : {
   @table::TrigTrkProducers
+   TTOmakeSH: {
+      @table::TrigTrkProducers.TTmakeSH
+      MinimumTime : 0
+      MaximumTime : 100000
+      MinimumRadius : 0
+      MaximumRadius : 800
+      MinimumEnergy : 0
+      MaximumEnergy : 1
+   }
    TTOmakeSHFromDigi: {
       @table::TrigTrkProducers.TTmakeSHFromDigi
       MinimumTime : 0
