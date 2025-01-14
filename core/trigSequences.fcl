@@ -71,7 +71,7 @@ TrigTrkPaths:{
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeHighPStopTargTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDe, cprDeHighPStopTargHSFilter,
     TTCalSeedFitDe, cprDeHighPStopTargKSFilter, cprDeHighPStopTargTriggerInfoMerger ]
-  
+
   cprDe_highP               : [ @sequence::TrigRecoSequences.artFragmentsGen,  cprDeHighPPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTCalTimePeakFinder, cprDeHighPTCFilter, TTCalHelixFinderDe, TTCalHelixMergerDe, cprDeHighPHSFilter,
@@ -100,7 +100,7 @@ TrigTrkPaths:{
    #fast tracking sequences that uses the calorimeter-time selection to reduce the number of TimeClusters and also the number of hits processed by the Delta-ray
    #removal algorithm
    # fastTprSeedDe  : [ @sequence::TrigRecoSequences.artFragmentsGen,  tprDeHighPStopTargPS, TrackSDCountFilter, @sequence::CaloClusterTrigger.Reco, @sequence::TrkHitRecoTrigger.sequences.TTmakefastHits,
-      #         TTfastTimeClusterFinder, tprFTCFilter, TTDeltaFinder, TTfastHelixFinder, FtprDeHelixFilter, TTFKSFDe, FtprDeHighPStopTargFilter, tprDeHighPStopTargPrescale ]
+      #         TTfastTimeClusterFinder, tprFTCFilter, TTflagPH, TTfastHelixFinder, FtprDeHelixFilter, TTFKSFDe, FtprDeHighPStopTargFilter, tprDeHighPStopTargPrescale ]
 
 
    # sequences for doing timing tests

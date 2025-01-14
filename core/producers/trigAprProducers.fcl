@@ -2,13 +2,13 @@ BEGIN_PROLOG
 
 TrigAprProducers : {
   TTTZClusterFinder : { @table::CalPatRec.producers.TZClusterFinder
-    chCollLabel                : "TTDeltaFinder"
+    chCollLabel                : "TTflagPH"
     chCollLabel2               : "TTmakeSH"
     ccCollLabel                : "CaloClusterFast"
   }
 
   TTAprHelixFinder: { @table::CalPatRec.producers.AgnosticHelixFinder
-    chCollLabel             : "TTDeltaFinder"
+    chCollLabel             : "TTflagPH"
     tcCollLabel             : "TTTZClusterFinder"
     ccCollLabel             : "CaloClusterFast"
     minNHelixComboHits      : 10
@@ -42,6 +42,10 @@ TrigAprProducers : {
     }
     UsePDGCharge     : false
     FitDirection     : 0
+  }
+
+  TTAprKSFMC: {
+    module_type : RecoNullProducer
   }
 
   aprHighPStopTargTriggerInfoMerger: {

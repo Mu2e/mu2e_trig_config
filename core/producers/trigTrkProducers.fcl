@@ -67,5 +67,10 @@ TrigTrkProducers : {
     maxEDepAvg : 0.0025
   }
 }
+# This next defines which hit flagger to use
+TrigTrkProducers : {
+  @table::TrigTrkProducers
+  TTflagPH: @local::TrigTrkProducers.TTDeltaFinder
+}
 
 END_PROLOG
