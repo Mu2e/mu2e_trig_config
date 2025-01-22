@@ -44,10 +44,6 @@ TrigAprProducers : {
     FitDirection     : 0
   }
 
-  TTAprKSFMC: {
-    module_type : RecoNullProducer
-  }
-
   aprHighPStopTargTriggerInfoMerger: {
     module_type: "MergeTriggerInfo"
   }
