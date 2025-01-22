@@ -25,6 +25,7 @@ TrigCstFilters:{
     module_type: "TimeClusterFilter"
     requireCaloCluster: false
     timeClusterCollection: "CstSimpleTimeCluster"
+    ComboHitCollection: "TTOmakePH"
   }
   cstTSFilter: {
     CosmicTrackSeedCollection: "CstCosmicTrackFinder"
@@ -52,10 +53,11 @@ TrigCstFilters:{
     useStrawDigi: true
   }
   cstTimeClusterTCFilter: {
-    minNStrawHits: 4
+    minNStrawHits: 10
     module_type: "TimeClusterFilter"
     requireCaloCluster: false
     timeClusterCollection: "CstSimpleTimeCluster"
+    ComboHitCollection: "TTOmakePH"
   }
   cstCosmicTrackSeedSDCountFilter: {
     caloDigiCollection: "notUsed"
@@ -74,6 +76,7 @@ TrigCstFilters:{
     module_type: "TimeClusterFilter"
     requireCaloCluster: false
     timeClusterCollection: "CstSimpleTimeCluster"
+    ComboHitCollection: "TTOmakePH"
   }
   cstCosmicTrackSeedCTSFilter: {
     module_type: "CosmicSeedFilter"
