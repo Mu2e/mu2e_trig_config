@@ -50,7 +50,7 @@ TrigCprProducers : {
          xyWeights: false
          zWeights: false
       }
-      StrawHitCollectionLabel: "TTDeltaFinder"
+      StrawHitCollectionLabel: "TTflagPH"
       TimeClusterCollectionLabel: "TTCalTimePeakFinder"
       debugLevel: 0
       diagLevel: 0
@@ -124,7 +124,7 @@ TrigCprProducers : {
          xyWeights: false
          zWeights: false
       }
-      StrawHitCollectionLabel: "TTDeltaFinder"
+      StrawHitCollectionLabel: "TTflagPH"
       TimeClusterCollectionLabel: "TTCalTimePeakFinderUe"
       debugLevel: 0
       diagLevel: 0
@@ -160,7 +160,7 @@ TrigCprProducers : {
       DtMax: 20
       DtMin: -20
       MinNHits: 10
-      StrawHitCollectionLabel: "TTDeltaFinder"
+      StrawHitCollectionLabel: "TTflagPH"
       Beta: 1
       CaloClusterModuleLabel: "CaloClusterFast"
       DebugLevel: 0
@@ -187,7 +187,7 @@ TrigCprProducers : {
       DtMax: 20
       DtMin: -20
       MinNHits: 10
-      StrawHitCollectionLabel: "TTDeltaFinder"
+      StrawHitCollectionLabel: "TTflagPH"
       Beta: 1
       CaloClusterModuleLabel: "CaloClusterFast"
       DebugLevel: 0

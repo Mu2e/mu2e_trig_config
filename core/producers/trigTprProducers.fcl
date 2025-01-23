@@ -3,7 +3,7 @@ BEGIN_PROLOG
 TrigTprProducers : {
    TTtimeClusterFinder: {
       @table::TrkPatRec.TimeClusterFinder
-      ComboHitCollection     : "TTDeltaFinder"
+      ComboHitCollection     : "TTflagPH"
       CaloClusterCollection  : "CaloClusterFast"
       TestFlag               : false
       T0Calculator           : {
@@ -14,7 +14,7 @@ TrigTprProducers : {
 
    TTtimeClusterFinderUe: {
       @table::TrkPatRec.TimeClusterFinder
-      ComboHitCollection     : "TTDeltaFinder"
+      ComboHitCollection     : "TTflagPH"
       CaloClusterCollection  : "CaloClusterFast"
       TestFlag               : false
       AveragePitch : -0.63
@@ -29,7 +29,7 @@ TrigTprProducers : {
     AveragePitch: 6e-1
     CentralPerpResolution: 12
     CentralRadialResolution: 20
-    ComboHitCollection: "TTDeltaFinder"
+    ComboHitCollection: "TTflagPH"
     DebugLevel: 0
     DiagLevel: 0
     DiagPlugin: {
@@ -209,7 +209,7 @@ TrigTprProducers : {
     AveragePitch: 6e-1
     CentralPerpResolution: 12
     CentralRadialResolution: 20
-    ComboHitCollection: "TTDeltaFinder"
+    ComboHitCollection: "TTflagPH"
     DebugLevel: 0
     DiagLevel: 0
     DiagPlugin: {
