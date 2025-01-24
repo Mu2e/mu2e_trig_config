@@ -19,7 +19,6 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigDigiInputsEpilog.fcl       $
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigFilters.fcl                ${CURRENT_BINARY_DIR} core/trigFilters.fcl                        COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigProducers.fcl              ${CURRENT_BINARY_DIR} core/trigProducers.fcl                      COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigRecoSequences.fcl          ${CURRENT_BINARY_DIR} core/trigRecoSequences.fcl                  COPYONLY)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigMCProductionSequences.fcl  ${CURRENT_BINARY_DIR} core/trigMCProductionSequences.fcl          COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigSequences.fcl              ${CURRENT_BINARY_DIR} core/trigSequences.fcl                      COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/core/trigServices.fcl               ${CURRENT_BINARY_DIR} core/trigServices.fcl                       COPYONLY)
 
