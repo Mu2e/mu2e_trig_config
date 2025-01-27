@@ -198,7 +198,7 @@ TrigTrkPaths:{
       aprLowPStopTargHSFilter, TTAprKSF, aprLowPStopTargKSFilter, aprLowPStopTargTriggerInfoMerger ]
 
    apr_highP_stopTarg_multiTrk       : [ @sequence::TrigRecoSequences.artFragmentsGen,
-      aprHigh7PStopTargMultiTrkPS, @sequence::TrigRecoSequences.calReco,
+      aprHighPStopTargMultiTrkPS, @sequence::TrigRecoSequences.calReco,
       @sequence::TrigRecoSequences.trkPrepareHits,
       TTTZClusterFinder, aprHighPStopTargMultiTrkTCFilter, TTAprHelixFinder, TTAprHelixMerger,
       aprHighPStopTargMultiTrkHSFilter, TTAprKSF, aprHighPStopTargMultiTrkKSFilter, aprHighPStopTargMultiTrkTriggerInfoMerger ]
