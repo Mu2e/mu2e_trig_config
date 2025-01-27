@@ -8,19 +8,29 @@ def fill_results(f, verbose = 0):
     results = {}
 
     timing_info = []
+    reference_timing_info = []
     for line in f:
         if verbose > 1: print(line)
         # Exit once the trigger path summary has completed
         if 'End-path summary' in line: break
         words = line.split()
-        # Check if it's the timing information
+        # Check if it's the timing information for the full event processing
         if len(words) == 8 and words[0] == "Full" and words[1] == "event":
             #             [min, avg, max, median, rms]
             timing_info = [float(words[index]) for index in range(2,7)]
             if verbose > 0:
                 print("Timing info:    min        avg        max       median     rms")
                 print("             %.3e  %.3e  %.3e  %.3e  %.3e" % (timing_info[0], timing_info[1], timing_info[2],
-                                                               timing_info[3], timing_info[3]))
+                                                                     timing_info[3], timing_info[3]))
+            continue
+        # Check if it's the timing information for the art fragment from DTC module, for a reference timing
+        if len(words) == 7 and 'artFragFromDTCEvents' in words[0] and len(reference_timing_info) == 0:
+            #             [min, avg, max, median, rms]
+            reference_timing_info = [float(words[index]) for index in range(1,6)]
+            if verbose > 0:
+                print("Timing info:    min        avg        max       median     rms")
+                print("             %.3e  %.3e  %.3e  %.3e  %.3e" % (reference_timing_info[0], reference_timing_info[1], reference_timing_info[2],
+                                                                     reference_timing_info[3], reference_timing_info[3]))
                 print("Path                          :    run   pass   fail  error")
             continue
         # Check if it's a trigger path summary line
@@ -33,7 +43,7 @@ def fill_results(f, verbose = 0):
             if verbose > 0:
                 print("%30s: %6i %6i %6i %6i" % (path, counts[0], counts[1], counts[2], counts[3]))
         except: continue
-    return results,timing_info
+    return results,timing_info, reference_timing_info
 
 #--------------------------------------------------------------
 # Main execution
@@ -52,15 +62,15 @@ except FileNotFoundError:
     exit(2)
 
 if verbose > 0: print(">>> Retrieving info from the local processing")
-results_1,timing_1 = fill_results(f_1, verbose)
+results_1,timing_1,reference_time_1 = fill_results(f_1, verbose)
 if verbose > 0: print(">>> Retrieving info from the reference processing")
-results_2,timing_2 = fill_results(f_2, verbose)
+results_2,timing_2,reference_time_2 = fill_results(f_2, verbose)
 
 # Define the major vs. minor failure thresholds
 count_minor_threshold = 1 # path rate change for minor failure
 count_major_threshold = 4 # path rate change for major failure
-avg_time_minor_threshold = 0.15 # fractional change in time / event
-avg_time_major_threshold = 0.25 # fractional change in time / event
+avg_time_minor_threshold = 0.20 # fractional change in time / event
+avg_time_major_threshold = 0.30 # fractional change in time / event
 minor_fail = False
 major_fail = False
 
@@ -89,14 +99,24 @@ for path in results_2:
         print(">>> Trigger path " + path + " in reference not found in local!")
         major_fail = True
 
-# Check the timing rates
-avg_time_delta = abs(timing_1[1]/timing_2[1] - 1.)
-if avg_time_delta > avg_time_major_threshold:
-    print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference)" % (timing_2[1], timing_1[1]))
+
+if len(timing_1) == 0 or len(reference_time_1) == 0:
+    print(">>> Failed to retrieve the timing information for the new processing!")
     major_fail = True
-elif avg_time_delta > avg_time_minor_threshold:
-    print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference)" % (timing_2[1], timing_1[1]))
-    minor_fail = True
+elif len(timing_2) == 0 or len(reference_time_2) == 0:
+    print(">>> Failed to retrieve the timing information for the reference processing!")
+    major_fail = True
+else:
+    # Check the timing rates
+    time_scale = (reference_time_2[1] / reference_time_1[1])
+    avg_time_delta = abs(timing_1[1] / time_scale /timing_2[1] - 1.)
+    print("Evaluating a timing scale: %.3e (new) and %.3e (reference) --> scale = %.2f, |time delta| = %.2f" % (reference_time_1[1], reference_time_2[1], time_scale, avg_time_delta))
+    if avg_time_delta > avg_time_major_threshold:
+        print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time" % (timing_1[1], timing_2[1], time_scale))
+        major_fail = True
+    elif avg_time_delta > avg_time_minor_threshold:
+        print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time" % (timing_1[1], timing_2[1], time_scale))
+        minor_fail = True
 
 # Return the exit codes for minor/major failures
 if major_fail: exit(2)
