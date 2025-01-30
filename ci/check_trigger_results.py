@@ -117,7 +117,7 @@ else:
         print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time (%.3e)" % (timing_1[1], timing_2[1], time_scale, scaled_time))
         major_fail = True
     elif avg_time_delta > avg_time_minor_threshold:
-        print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time" % (timing_1[1], timing_2[1], time_scale))
+        print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time (%.3e)" % (timing_1[1], timing_2[1], time_scale, scaled_time))
         minor_fail = True
 
 # Return the exit codes for minor/major failures
