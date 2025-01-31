@@ -109,13 +109,15 @@ elif len(timing_2) == 0 or len(reference_time_2) == 0:
 else:
     # Check the timing rates
     time_scale = (reference_time_2[1] / reference_time_1[1])
-    avg_time_delta = abs(timing_1[1] / time_scale /timing_2[1] - 1.)
-    print("Evaluating a timing scale: %.3e (new) and %.3e (reference) --> scale = %.2f, |time delta| = %.2f" % (reference_time_1[1], reference_time_2[1], time_scale, avg_time_delta))
+    scaled_time = timing_1[1] * time_scale
+    avg_time_delta = abs(scaled_time /timing_2[1] - 1.)
+    print("Evaluating a timing scale: %.3e (new) and %.3e (reference) --> scale = %.2f" % (reference_time_1[1], reference_time_2[1], time_scale))
+    print("Total processing time per event: %.4f (new) (%.4e scaled) vs. %.4f (reference), |time_new / time_ref - 1| = %.3f" % (timing_1[1], scaled_time, timing_2[1], avg_time_delta))
     if avg_time_delta > avg_time_major_threshold:
-        print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time" % (timing_1[1], timing_2[1], time_scale))
+        print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time (%.3e)" % (timing_1[1], timing_2[1], time_scale, scaled_time))
         major_fail = True
     elif avg_time_delta > avg_time_minor_threshold:
-        print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time" % (timing_1[1], timing_2[1], time_scale))
+        print(">>> Average time changed somewhat significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time (%.3e)" % (timing_1[1], timing_2[1], time_scale, scaled_time))
         minor_fail = True
 
 # Return the exit codes for minor/major failures
