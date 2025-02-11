@@ -65,7 +65,7 @@ TrigAprFilters:{
       { #cuts for downstreeam e-minus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -83,7 +83,7 @@ TrigAprFilters:{
       {#cuts for downstreeam e-plus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -156,7 +156,7 @@ TrigAprFilters:{
       { #cuts for downstreeam e-minus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600
@@ -174,7 +174,7 @@ TrigAprFilters:{
       {#cuts for downstreeam e-plus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600
@@ -248,7 +248,7 @@ TrigAprFilters:{
       { #cuts for downstreeam e-minus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -266,7 +266,7 @@ TrigAprFilters:{
       {#cuts for downstreeam e-plus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -341,7 +341,7 @@ TrigAprFilters:{
       { #cuts for downstreeam e-minus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600.
@@ -359,7 +359,7 @@ TrigAprFilters:{
       { #cuts for downstreeam e-plus
         doParticleTypeCheck: false
         doZPropDirCheck: true
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600 #150

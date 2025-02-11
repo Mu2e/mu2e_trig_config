@@ -86,11 +86,13 @@ for path in results_1:
                 print(">>> Path " + path + " has a major change!")
                 print("Local counts    :", counts_1)
                 print("Reference counts:", counts_2)
+                break
             elif delta >= count_minor_threshold:
                 minor_fail = True
                 print(">>> Path " + path + " has a minor change:")
                 print("Local counts    :", counts_1)
                 print("Reference counts:", counts_2)
+                break
     else:
         print(">>> New trigger path " + path + " in local found, not in the reference!")
         major_fail = True

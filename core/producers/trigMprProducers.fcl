@@ -52,7 +52,7 @@ TrigMprProducers : {
       HelixSeedCollections   : [ "TTMprHelixMergerDe" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 0
+    FitDirection     : @local::FitDir.downstream
   }
 
   mprDeHighPStopTargTriggerInfoMerger: {

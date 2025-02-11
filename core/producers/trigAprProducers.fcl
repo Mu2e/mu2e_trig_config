@@ -41,7 +41,7 @@ TrigAprProducers : {
       HelixSeedCollections   : [ "TTAprHelixMerger" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 0
+    FitDirection     : @local::FitDir.downstream
   }
 
   aprHighPStopTargTriggerInfoMerger: {
