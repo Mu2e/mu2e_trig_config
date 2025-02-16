@@ -67,7 +67,7 @@ TrigCprProducers : {
          -1,
          1
       ]
-      fitdirection: 0
+      fitdirection: @local::FitDir.downstream
       fitparticle: 11
       doSingleOutput: true
       maxEDepAvg: 0.0025
@@ -141,7 +141,7 @@ TrigCprProducers : {
          -1,
          1
       ]
-      fitdirection: 0
+      fitdirection: @local::FitDir.downstream
       fitparticle: 11
       doSingleOutput: true
       maxEDepAvg: 0.0025
@@ -242,7 +242,7 @@ TrigCprProducers : {
          FitParticle         : 11
       }
       UsePDGCharge     : false
-      FitDirection     : 0
+      FitDirection     : @local::FitDir.downstream
    }
 
    cprDeHighPStopTargTriggerInfoMerger: {

@@ -186,7 +186,7 @@ TrigTprProducers : {
       HelixSeedCollections   : [ "TTHelixMergerDe" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 0
+    FitDirection     : @local::FitDir.downstream
   }
 
   TTKSFUe: {
@@ -201,7 +201,7 @@ TrigTprProducers : {
       HelixSeedCollections   : [ "TTHelixMergerUe" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 1
+    FitDirection     : @local::FitDir.upstream
   }
 
   TThelixFinderUe: {

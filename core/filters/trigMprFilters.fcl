@@ -59,7 +59,7 @@ TrigMprFilters:{
     kalSeedCollection: "TTMprKSFDe"
     KalSeedCuts : [
       { #cuts for doesntream e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         doParticleTypeCheck: true
         doZPropDirCheck: true
@@ -77,7 +77,7 @@ TrigMprFilters:{
         requireCaloCluster: false
       },
       {
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         doParticleTypeCheck: true
         doZPropDirCheck: true
