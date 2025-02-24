@@ -9,19 +9,25 @@ def fill_results(f, verbose = 0):
 
     timing_info = []
     reference_timing_info = []
+    first_event_time = -1.
+    nevents = -1
     for line in f:
         if verbose > 1: print(line)
         # Exit once the trigger path summary has completed
         if 'End-path summary' in line: break
         words = line.split()
+        # Check if the database initialization time is given
+        if 'DbEngine inclusive beginJob time was' in line:
+            first_event_time = float(words[-2])
         # Check if it's the timing information for the full event processing
         if len(words) == 8 and words[0] == "Full" and words[1] == "event":
             #             [min, avg, max, median, rms]
             timing_info = [float(words[index]) for index in range(2,7)]
+            nevents = int(words[-1])
             if verbose > 0:
-                print("Timing info:    min        avg        max       median     rms")
-                print("             %.3e  %.3e  %.3e  %.3e  %.3e" % (timing_info[0], timing_info[1], timing_info[2],
-                                                                     timing_info[3], timing_info[3]))
+                print("Timing info:    min        avg        max       median     rms    nevents")
+                print("             %.3e  %.3e  %.3e  %.3e  %.3e %i" % (timing_info[0], timing_info[1], timing_info[2],
+                                                                        timing_info[3], timing_info[3], nevents))
             continue
         # Check if it's the timing information for the art fragment from DTC module, for a reference timing
         if len(words) == 7 and 'artFragFromDTCEvents' in words[0] and len(reference_timing_info) == 0:
@@ -43,6 +49,13 @@ def fill_results(f, verbose = 0):
             if verbose > 0:
                 print("%30s: %6i %6i %6i %6i" % (path, counts[0], counts[1], counts[2], counts[3]))
         except: continue
+
+    # Adjust the processing times to remove the database access time
+    if first_event_time > 0 and nevents > 0:
+        print("First event processing time: %.4f" % (first_event_time))
+        time_shift = first_event_time / nevents
+        print("--> Adjusting the average time by %.5f: %.5f --> %.5f" % (time_shift, timing_info[1], timing_info[1]-time_shift))
+        timing_info[1] -= time_shift
     return results,timing_info, reference_timing_info
 
 #--------------------------------------------------------------
@@ -86,11 +99,13 @@ for path in results_1:
                 print(">>> Path " + path + " has a major change!")
                 print("Local counts    :", counts_1)
                 print("Reference counts:", counts_2)
+                break
             elif delta >= count_minor_threshold:
                 minor_fail = True
                 print(">>> Path " + path + " has a minor change:")
                 print("Local counts    :", counts_1)
                 print("Reference counts:", counts_2)
+                break
     else:
         print(">>> New trigger path " + path + " in local found, not in the reference!")
         major_fail = True
@@ -112,7 +127,7 @@ else:
     scaled_time = timing_1[1] * time_scale
     avg_time_delta = abs(scaled_time /timing_2[1] - 1.)
     print("Evaluating a timing scale: %.3e (new) and %.3e (reference) --> scale = %.2f" % (reference_time_1[1], reference_time_2[1], time_scale))
-    print("Total processing time per event: %.4f (new) (%.4e scaled) vs. %.4f (reference), |time_new / time_ref - 1| = %.3f" % (timing_1[1], scaled_time, timing_2[1], avg_time_delta))
+    print("Total processing time per event: %.4f (new) (%.4f scaled) vs. %.4f (reference), |time_new / time_ref - 1| = %.3f" % (timing_1[1], scaled_time, timing_2[1], avg_time_delta))
     if avg_time_delta > avg_time_major_threshold:
         print(">>> Average time changed significantly: %.4f (new) vs. %.4f (reference) given a time scale of %.2f to the new time (%.3e)" % (timing_1[1], timing_2[1], time_scale, scaled_time))
         major_fail = True
