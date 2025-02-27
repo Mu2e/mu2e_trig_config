@@ -68,7 +68,7 @@ TrigCprProducers : {
          1
       ]
       fitdirection: 0
-      fitparticle: 11
+      fitparticle: @local::Particle.eminus
       doSingleOutput: true
       maxEDepAvg: 0.0025
       minNHitsTimeCluster: 10
@@ -142,7 +142,7 @@ TrigCprProducers : {
          1
       ]
       fitdirection: 0
-      fitparticle: 11
+      fitparticle: @local::Particle.eminus
       doSingleOutput: true
       maxEDepAvg: 0.0025
       minNHitsTimeCluster: 10
@@ -239,10 +239,10 @@ TrigCprProducers : {
       ModuleSettings   : {
          @table::Mu2eKinKalTrigger.LOOPHELIX
          HelixSeedCollections: ["TTCalHelixMergerDe"]
-         FitParticle         : 11
+         FitParticle         : @local::Particle.eminus
       }
       UsePDGCharge     : false
-      FitDirection     : 0
+      FitDirection     : @local::FitDir.downstream
    }
 
    cprDeHighPStopTargTriggerInfoMerger: {

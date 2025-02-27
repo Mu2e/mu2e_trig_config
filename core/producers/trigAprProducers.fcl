@@ -37,11 +37,11 @@ TrigAprProducers : {
     ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
     ModuleSettings   : {
       @table::Mu2eKinKalTrigger.LOOPHELIX
-      FitParticle : 11
+      FitParticle : @local::Particle.eminus
       HelixSeedCollections   : [ "TTAprHelixMerger" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 0
+    FitDirection     : @local::FitDir.downstream
   }
 
   aprHighPStopTargTriggerInfoMerger: {

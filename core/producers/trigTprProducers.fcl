@@ -182,11 +182,11 @@ TrigTprProducers : {
     ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
     ModuleSettings   : {
       @table::Mu2eKinKalTrigger.LOOPHELIX
-      FitParticle : 11
+      FitParticle : @local::Particle.eminus
       HelixSeedCollections   : [ "TTHelixMergerDe" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 0
+    FitDirection     : @local::FitDir.downstream
   }
 
   TTKSFUe: {
@@ -197,11 +197,11 @@ TrigTprProducers : {
     ExtensionSettings: { @table::Mu2eKinKalTrigger.SEEDEXT }
     ModuleSettings   : {
       @table::Mu2eKinKalTrigger.LOOPHELIX
-      FitParticle : 11
+      FitParticle : @local::Particle.eminus
       HelixSeedCollections   : [ "TTHelixMergerUe" ]
     }
     UsePDGCharge     : false
-    FitDirection     : 1
+    FitDirection     : @local::FitDir.upstream
   }
 
   TThelixFinderUe: {
