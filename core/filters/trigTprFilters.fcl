@@ -71,7 +71,7 @@ TrigTprFilters:{
     kalSeedCollections: [ "TTKSFDe" ]
     KalSeedCuts : [
       { #cuts for doesntream e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -86,7 +86,7 @@ TrigTprFilters:{
         requireCaloCluster: false
       },
       {
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -158,7 +158,7 @@ TrigTprFilters:{
     kalSeedCollections: [ "TTKSFDe" ]
     KalSeedCuts : [
       { #cuts for doesntream e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600
@@ -173,7 +173,7 @@ TrigTprFilters:{
         requireCaloCluster: false
       },
       {
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600
@@ -244,7 +244,7 @@ TrigTprFilters:{
     kalSeedCollections: [ "TTKSFDe" ]
     KalSeedCuts: [
       { #cuts for downstream e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -259,7 +259,7 @@ TrigTprFilters:{
         requireCaloCluster: false
       },
       { #cuts for downstream e-plus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200

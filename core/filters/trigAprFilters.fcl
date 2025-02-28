@@ -63,6 +63,7 @@ TrigAprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -77,6 +78,7 @@ TrigAprFilters:{
         requireCaloCluster: false
       },
       {#cuts for downstreeam e-plus
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -146,6 +148,12 @@ TrigAprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600
@@ -160,6 +168,12 @@ TrigAprFilters:{
         requireCaloCluster: false
       },
       {#cuts for downstreeam e-plus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600
@@ -230,6 +244,12 @@ TrigAprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -244,6 +264,12 @@ TrigAprFilters:{
         requireCaloCluster: false
       },
       {#cuts for downstreeam e-plus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -315,6 +341,12 @@ TrigAprFilters:{
     minNTrks: 2
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600.
@@ -329,6 +361,12 @@ TrigAprFilters:{
         requireCaloCluster: false
       },
       { #cuts for downstreeam e-plus
+<<<<<<< HEAD
+=======
+        doParticleTypeCheck: false
+        doZPropDirCheck: true
+        fitdirection: @local::FitDir.downstream
+>>>>>>> main
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600 #150

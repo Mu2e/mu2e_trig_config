@@ -65,7 +65,7 @@ TrigCprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -80,7 +80,7 @@ TrigCprFilters:{
         requireCaloCluster: false
       },
       { #cuts for downstream e-plus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200
@@ -150,7 +150,7 @@ TrigCprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 600
@@ -165,7 +165,7 @@ TrigCprFilters:{
         requireCaloCluster: false
       },
       { #cuts for downstream e-plus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 600
@@ -235,7 +235,7 @@ TrigCprFilters:{
     module_type: "KalSeedFilter"
     KalSeedCuts : [
       { #cuts for downstream e-minus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: 11
         maxChi2DOF: 20
         maxD0: 200
@@ -250,7 +250,7 @@ TrigCprFilters:{
         requireCaloCluster: false
       },
       { #cuts for downstream e-plus
-        fitdirection: 0
+        fitdirection: @local::FitDir.downstream
         fitparticle: -11
         maxChi2DOF: 20
         maxD0: 200

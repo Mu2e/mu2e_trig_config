@@ -67,8 +67,13 @@ TrigCprProducers : {
          -1,
          1
       ]
+<<<<<<< HEAD
       fitdirection: 0
       fitparticle: @local::Particle.eminus
+=======
+      fitdirection: @local::FitDir.downstream
+      fitparticle: 11
+>>>>>>> main
       doSingleOutput: true
       maxEDepAvg: 0.0025
       minNHitsTimeCluster: 10
@@ -141,8 +146,13 @@ TrigCprProducers : {
          -1,
          1
       ]
+<<<<<<< HEAD
       fitdirection: 0
       fitparticle: @local::Particle.eminus
+=======
+      fitdirection: @local::FitDir.downstream
+      fitparticle: 11
+>>>>>>> main
       doSingleOutput: true
       maxEDepAvg: 0.0025
       minNHitsTimeCluster: 10
