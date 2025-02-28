@@ -60,7 +60,7 @@ TrigMprFilters:{
     KalSeedCuts : [
       { #cuts for doesntream e-minus
         fitdirection: @local::FitDir.downstream
-        fitparticle: 11
+        fitparticle: @local::Particle.eminus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10
@@ -75,7 +75,7 @@ TrigMprFilters:{
       },
       {
         fitdirection: @local::FitDir.downstream
-        fitparticle: -11
+        fitparticle: @local::Particle.eplus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10

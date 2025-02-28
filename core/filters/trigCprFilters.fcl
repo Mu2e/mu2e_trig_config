@@ -66,7 +66,7 @@ TrigCprFilters:{
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
         fitdirection: @local::FitDir.downstream
-        fitparticle: 11
+        fitparticle: @local::Particle.eminus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10
@@ -81,7 +81,7 @@ TrigCprFilters:{
       },
       { #cuts for downstream e-plus
         fitdirection: @local::FitDir.downstream
-        fitparticle: -11
+        fitparticle: @local::Particle.eplus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10
@@ -151,7 +151,7 @@ TrigCprFilters:{
     KalSeedCuts : [
       { #cuts for downstreeam e-minus
         fitdirection: @local::FitDir.downstream
-        fitparticle: 11
+        fitparticle: @local::Particle.eminus
         maxChi2DOF: 20
         maxD0: 600
         maxMomErr: 10
@@ -166,7 +166,7 @@ TrigCprFilters:{
       },
       { #cuts for downstream e-plus
         fitdirection: @local::FitDir.downstream
-        fitparticle: -11
+        fitparticle: @local::Particle.eplus
         maxChi2DOF: 20
         maxD0: 600
         maxMomErr: 10
@@ -236,7 +236,7 @@ TrigCprFilters:{
     KalSeedCuts : [
       { #cuts for downstream e-minus
         fitdirection: @local::FitDir.downstream
-        fitparticle: 11
+        fitparticle: @local::Particle.eminus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10
@@ -251,7 +251,7 @@ TrigCprFilters:{
       },
       { #cuts for downstream e-plus
         fitdirection: @local::FitDir.downstream
-        fitparticle: -11
+        fitparticle: @local::Particle.eplus
         maxChi2DOF: 20
         maxD0: 200
         maxMomErr: 10
