@@ -2,6 +2,8 @@
 # this file includes all the prolog needed to run the reconstruction
 # at the trigger level and the filters used to make the trigger decision
 #------------------------------------------------------------------------------
+#include "Offline/TrkReco/fcl/Particle.fcl"
+#
 #include "mu2e_trig_config/core/filters/trigCprFilters.fcl"
 #include "mu2e_trig_config/core/filters/trigTprFilters.fcl"
 #include "mu2e_trig_config/core/filters/trigAprFilters.fcl"
@@ -9,7 +11,6 @@
 #include "mu2e_trig_config/core/filters/trigSupFilters.fcl"
 #include "mu2e_trig_config/core/filters/trigCalFilters.fcl"
 #include "mu2e_trig_config/core/filters/trigMprFilters.fcl"
-
 BEGIN_PROLOG
 
 TrigFilters : {

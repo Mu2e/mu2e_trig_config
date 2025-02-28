@@ -2,7 +2,6 @@
 # this file includes all the prolog needed to run the reconstruction
 # at the trigger level and the filters used to make the trigger decision
 #------------------------------------------------------------------------------
-#include "Offline/TrkPatRec/fcl/Particle.fcl"
 #include "Offline/TrkHitReco/fcl/prolog.fcl"
 #include "Offline/Mu2eKinKal/fcl/prolog.fcl"
 #include "Offline/TrkReco/fcl/prolog.fcl"
